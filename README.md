@@ -7,12 +7,12 @@ Cake Store RESTFul API Service within the specified time
 ## Build With
 
 * [Go](https://go.dev/)
-* [MySQL DB](https://mysql.com/)
+* [MySQL - db4free.net](https://db4free.net/)
 * [Google App Engine (GAE)](https://cloud.google.com/appengine)
 
 ## API endpoints
 
-Deployment URL : <https://steam-mantis-381321.et.r.appspot.com//>
+Deployment URL : <https://steam-mantis-381321.et.r.appspot.com/>
 
 | API Name | Link |
 | ------ | ------ |

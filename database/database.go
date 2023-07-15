@@ -2,17 +2,31 @@ package database
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
 )
 
-// DB merupakan objek database yang akan digunakan di seluruh aplikasi
 var DB *sql.DB
 
-// Inisialisasi koneksi ke database
 func InitDB() error {
-	db, err := sql.Open("mysql", "techtestbe:techtestbe@tcp(db4free.net:3306)/cakestoreralali")
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	username := os.Getenv("DB_USERNAME")
+	password := os.Getenv("DB_PASSWORD")
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	dbName := os.Getenv("DB_NAME")
+
+	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", username, password, host, port, dbName)
+
+	db, err := sql.Open("mysql", dataSourceName)
 	if err != nil {
 		return err
 	}

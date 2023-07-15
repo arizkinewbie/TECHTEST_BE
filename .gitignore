@@ -18,9 +18,10 @@
 # vendor/
 
 # Go workspace file
+# .env
 tmp
 go.work
 
 # App Engine files
-app.yaml
-appengine.*
+# app.yaml
+# appengine.*
