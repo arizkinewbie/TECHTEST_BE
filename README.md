@@ -7,7 +7,7 @@ Cake Store RESTFul API Service within the specified time
 ## Build With
 
 * [Go](https://go.dev/)
-* [MySQL DB] (https://mysql.com/)
+* [MySQL DB](https://mysql.com/)
 
 ## API endpoints
 
