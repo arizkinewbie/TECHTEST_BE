@@ -34,7 +34,21 @@ This API follows RESTful guidelines and is designed to be scalable and easy to u
    ```
 
 4. Set up the database:
+
    * Create a MySQL database for the application.
+   Berikut adalah struktur SQL untuk tabel "cakes":
+
+      | Field       | Type         | Null | Key     | Default           | Extra             |
+      |-------------|--------------|------|---------|-------------------|-------------------|
+      | id          | INT          | NO   | PRIMARY | None              | AUTO_INCREMENT    |
+      | title       | VARCHAR(255) | NO   |         | None              |                   |
+      | description | TEXT         | YES  |         | NULL              |                   |
+      | rating      | FLOAT        | YES  |         | NULL              |                   |
+      | image       | VARCHAR(255) | YES  |         | NULL              |                   |
+      | created_at  | DATETIME     | YES  |         | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+      | updated_at  | DATETIME     | YES  |         | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+      | deleted_at  | DATETIME     | YES  |         | NULL              |                   |
+
    * Update the database configuration in the `.env` file.
 
 5. Run the application:
@@ -43,7 +57,7 @@ This API follows RESTful guidelines and is designed to be scalable and easy to u
    go run main.go
    ```
 
-6. The API will be accessible at `http://localhost:8000`.
+6. The API will be accessible at `http://localhost:8080`.
 
 ## Usage
 
@@ -61,4 +75,5 @@ Use a tool like Postman to send HTTP requests to the API endpoints.
 | API Name | Link |
 | ------ | ------ |
 | Cake Store RESTFul API | [![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/27407764/2s946fdYJa) |
-Deployment URL : <https://steam-mantis-381321.et.r.appspot.com/>
+
+>Deployment URL : <https://steam-mantis-381321.et.r.appspot.com/>
