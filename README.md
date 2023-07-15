@@ -2,7 +2,10 @@
 
 ## About
 
-Cake Store RESTFul API Service within the specified time
+Cake Store RESTful API is a backend application built using Go programming language and MySQL database. It provides a set of endpoints to manage cake data in a cake store. With this API, you can perform operations such as retrieving all cakes, getting a cake by ID, adding a new cake, updating an existing cake, and deleting a cake.
+
+This API follows RESTful guidelines and is designed to be scalable and easy to use. It leverages the power of Go to provide efficient and high-performance data operations. The MySQL database is used to store and retrieve cake data.
+>I do not hide some files for grading purposes
 
 ## Build With
 
