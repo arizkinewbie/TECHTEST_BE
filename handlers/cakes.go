@@ -27,7 +27,7 @@ func GetCakesHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return cakes[i].Rating > cakes[j].Rating
 	})
-
+	
 	utils.RespondWithJSON(w, http.StatusOK, cakes)
 }
 
@@ -74,7 +74,7 @@ func AddCakeHandler(w http.ResponseWriter, r *http.Request) {
 
 // UpdateCakeHandler handles the PUT request to /cakes/{id}
 func UpdateCakeHandler(w http.ResponseWriter, r *http.Request) {
-	idParam := GetURLParam(r, "id")
+	idParam := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idParam)
 	if err != nil {
 		utils.RespondWithError(w, http.StatusBadRequest, "Invalid ID")
@@ -90,7 +90,11 @@ func UpdateCakeHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = models.UpdateCake(id, &cake)
 	if err != nil {
-		utils.RespondWithError(w, http.StatusNotFound, "Cake not found")
+		if err == models.ErrCakeNotFound {
+			utils.RespondWithError(w, http.StatusNotFound, "Cake not found")
+			return
+		}
+		utils.RespondWithError(w, http.StatusInternalServerError, "Internal Server Error")
 		return
 	}
 
@@ -99,7 +103,7 @@ func UpdateCakeHandler(w http.ResponseWriter, r *http.Request) {
 
 // DeleteCakeHandler handles the DELETE request to /cakes/{id}
 func DeleteCakeHandler(w http.ResponseWriter, r *http.Request) {
-	idParam := GetURLParam(r, "id")
+	idParam := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idParam)
 	if err != nil {
 		utils.RespondWithError(w, http.StatusBadRequest, "Invalid ID")
@@ -108,7 +112,11 @@ func DeleteCakeHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = models.DeleteCake(id)
 	if err != nil {
-		utils.RespondWithError(w, http.StatusNotFound, "Cake not found")
+		if err == models.ErrCakeNotFound {
+			utils.RespondWithError(w, http.StatusNotFound, "Cake not found")
+			return
+		}
+		utils.RespondWithError(w, http.StatusInternalServerError, "Internal Server Error")
 		return
 	}
 

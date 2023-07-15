@@ -20,11 +20,13 @@ func main() {
 	router := mux.NewRouter()
 
 	// Define API endpoints
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("This is the main page of the server. Please use the correct routes."))}).Methods("GET")
 	router.HandleFunc("/cakes", handlers.GetCakesHandler).Methods("GET")
 	router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("GET")
-		// router.HandleFunc("/cakes", handlers.GetCakeIDHandler).Methods("POST")
-	// router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("PUT")
-	// router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("DELETE")
+	router.HandleFunc("/cakes", handlers.AddCakeHandler).Methods("POST")
+	router.HandleFunc("/cakes/{id}", handlers.UpdateCakeHandler).Methods("PUT")
+	router.HandleFunc("/cakes/{id}", handlers.DeleteCakeHandler).Methods("DELETE")
 
 	// Start the server
 	log.Println("Server started on http://localhost:8080")
