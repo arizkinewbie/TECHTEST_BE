@@ -22,7 +22,7 @@ func main() {
 	// Define API endpoints
 	router.HandleFunc("/cakes", handlers.GetCakesHandler).Methods("GET")
 	router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("GET")
-		// router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("POST")
+		// router.HandleFunc("/cakes", handlers.GetCakeIDHandler).Methods("POST")
 	// router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("PUT")
 	// router.HandleFunc("/cakes/{id}", handlers.GetCakeIDHandler).Methods("DELETE")
 
