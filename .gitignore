@@ -18,8 +18,8 @@
 # vendor/
 
 # Go workspace file
+tmp
 go.work
-go.sum
 
 # App Engine files
 app.yaml
