@@ -17,7 +17,7 @@ type Cake struct {
 	Image       string  `json:"image"`
 }
 
-// CakeWithTimestamps represents the cake object with additional timestamps
+// CakeWithTimestamps represents
 type CakeWithTimestamps struct {
 	Cake
 	CreatedAt string    `json:"created_at"`
